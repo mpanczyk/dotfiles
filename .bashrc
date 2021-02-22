@@ -77,7 +77,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="/home/checker/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
