@@ -77,8 +77,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 export BC_ENV_ARGS="-ql"
 export VISUAL=vim
