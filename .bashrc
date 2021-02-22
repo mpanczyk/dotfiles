@@ -80,4 +80,9 @@ fi
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+export BC_ENV_ARGS="-ql"
 export VISUAL=vim
+
+alias g='git'
+alias d='docker'
+alias v='vim'
