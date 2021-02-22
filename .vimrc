@@ -1,8 +1,8 @@
 set nu
 
-set tabstop=2
+set tabstop=4
 set expandtab
-set softtabstop=2
+set softtabstop=4
 set autoindent
 set smartindent
 set backspace=2
@@ -11,7 +11,7 @@ set nowrap
 set ruler
 set showcmd
 set showmatch
-set shiftwidth=2
+set shiftwidth=4
 "set insertmode
 set encoding=utf-8
 
