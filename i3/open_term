@@ -1,0 +1,37 @@
+#!/bin/bash
+
+function get_cwd() {
+    WINDOW_ID=$(xprop -root _NET_ACTIVE_WINDOW | awk '{print $NF}')
+
+    APP_OBJECT_PATH="$(xprop -id $WINDOW_ID _GTK_APPLICATION_OBJECT_PATH | egrep -o '".*"')"
+    if [ "$APP_OBJECT_PATH" != '"/org/gnome/Terminal"' ]
+        then
+            echo "$HOME"
+            return
+        fi
+
+    TITLE=$(xprop -id $WINDOW_ID WM_NAME | egrep -o '".*"' | tr -d '"')
+
+    for PID in $(pgrep 'bash')
+        do
+            if grep -q "$TITLE" /proc/$PID/environ
+                then
+                    readlink -f /proc/$PID/cwd
+                    return
+                fi
+        done
+
+    echo 'Could not find pid of active term window' >&2
+    exit 1
+}
+
+
+CWD=$(get_cwd)
+UUID=$(uuidgen --random)
+
+gnome-terminal \
+    --window \
+    --hide-menubar \
+    --title "$UUID" \
+    --working-directory "$CWD" \
+    -- /bin/sh -c "WINDOW_TITLE=$UUID bash"
