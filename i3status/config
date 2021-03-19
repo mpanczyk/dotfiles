@@ -1,0 +1,43 @@
+general {
+       interval = 1
+       colors = true
+       separator = " x "
+}
+
+order += "load"
+order += "disk /"
+order += "cpu_temperature 1"
+order += "wireless wlp0s20f3"
+order += "memory"
+order += "tztime local"
+
+cpu_temperature 1 {
+    format = "%degrees °C"
+}
+
+wireless wlp0s20f3 {
+       format_up = "W: (%quality at %essid, %bitrate) %ip"
+       format_down = "W: down"
+}
+
+tztime local {
+       format = "%Y-%m-%d %H:%M:%S"
+}
+
+load {
+       format = "load: 1: %1min  5: %5min"
+}
+
+memory {
+       format = "RAM <used: %used, free: %free>"
+       threshold_degraded = "10%"
+       format_degraded = "MEMORY: %free"
+}
+
+disk "/" {
+       format = "SSD: <used: %used, free: %free> "
+}
+
+read_file uptime {
+       path = "/proc/uptime"
+}
