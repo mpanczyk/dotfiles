@@ -6,12 +6,12 @@ general {
 
 order += "load"
 order += "disk /"
-order += "cpu_temperature 1"
+order += "cpu_temperature 3"
 order += "wireless wlp0s20f3"
 order += "memory"
 order += "tztime local"
 
-cpu_temperature 1 {
+cpu_temperature 3 {
     format = "%degrees °C"
 }
 
