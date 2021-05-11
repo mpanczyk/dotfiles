@@ -61,6 +61,7 @@ bindsym $mod+g exec chromium-browser
 
 # start nautilus file manager
 bindsym $mod+n exec nautilus
+bindsym $mod+Shift+n exec pluma
 
 # kill focused window
 bindsym $mod+Shift+q kill
