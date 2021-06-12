@@ -29,9 +29,16 @@ function get_cwd() {
 CWD=$(get_cwd)
 UUID=$(uuidgen --random)
 
-gnome-terminal \
-    --window \
-    --hide-menubar \
-    --title "$UUID" \
-    --working-directory "$CWD" \
-    -- /bin/sh -c "WINDOW_TITLE=$UUID bash"
+case $1 in
+    'term')
+        gnome-terminal \
+            --window \
+            --hide-menubar \
+            --title "$UUID" \
+            --working-directory "$CWD" \
+            -- /bin/sh -c "WINDOW_TITLE=$UUID bash"
+        ;;
+
+    'nautilus')
+        nautilus "$CWD"
+esac
